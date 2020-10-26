@@ -2,7 +2,8 @@ class Post < ApplicationRecord
   belongs_to :user
   has_one_attached :image
   has_many :likes, dependent: :destroy
-   has_many :like_users, through: :likes, source: :user
+  has_many :comments, dependent: :destroy
+  has_many :like_users, through: :likes, source: :user
   
   default_scope -> { order(created_at: :desc) }
   validates :user_id, presence: true
