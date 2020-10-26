@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :update, :following, :followers]
+  
   def index
     @users = User.all
   end
-
+  
   def show
     @user = User.find(params[:id])
     @posts = @user.posts.paginate(page: params[:page])
@@ -14,7 +15,7 @@ class UsersController < ApplicationController
       @myfeeds = Post.where(user_id: [@post.id]).order(created_at: :desc)
     end
   end
-
+  
   def edit
     @user = User.find(params[:id])
   end
@@ -54,5 +55,4 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:name, :username, :email, :website, :profile, :sex)
     end
-  
 end

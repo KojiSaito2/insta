@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   root 'home#index'
+  get    '/terms',  to: 'home#terms'
   devise_for :users
   
   resources :users do
@@ -14,6 +15,7 @@ Rails.application.routes.draw do
     delete '/add' => 'likes#destroy'
   end
   resources :relationships, only: [:create, :destroy]
+  resources :notifications, only: [:index, :destroy]
   resources :comments
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
