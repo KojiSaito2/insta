@@ -3,7 +3,15 @@ Rails.application.routes.draw do
   root 'home#index'
   devise_for :users
   
-  resources :users
-  resources :posts
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+  resources :posts do
+    resources :comments
+    post 'add' => 'likes#create'
+    delete '/add' => 'likes#destroy'
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
