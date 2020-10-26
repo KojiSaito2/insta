@@ -3,3 +3,30 @@
 
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+
+/* header */
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+}
+
+#logo:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.h-icon{
+  font-size: 1.2em;
+}
+
+.card-image{
+  border-bottom: 1px solid #e8e8e8;
+  margin-top: 10px;
+}

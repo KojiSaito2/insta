@@ -15,7 +15,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
     @post.image.attach(params[:post][:image])
     if @post.save
-      #flash[:success] = "Post created!"
+      flash[:success] = "Post created!"
       redirect_to root_url
     else
       render 'root_path'
@@ -24,7 +24,7 @@ class PostsController < ApplicationController
   
   def destroy
     @post.destroy
-    #flash[:success] = "Post deleted"
+    flash[:success] = "Post deleted"
     redirect_to request.referrer || root_url
   end
   
