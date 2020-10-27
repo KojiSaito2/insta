@@ -16,7 +16,7 @@ class Post < ApplicationRecord
                                       presence: true
   
   def display_image
-    image.variant(resize_to_fill: [230, 230])
+    image.variant(resize_to_fill: [250, 250])
   end
   
   def liked_by?(user)
